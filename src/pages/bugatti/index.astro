@@ -1,0 +1,131 @@
+---
+import Navbar from "../../components/navbar.astro";
+import Layout from "../../layouts/Layout.astro";
+
+
+---
+
+
+<Layout title="Carace | Bugatti">
+    <Navbar></Navbar>
+
+    <!-- Estilos para la página de Bugatti -->
+    <style>
+      /* Estilos globales para el fondo */
+      body {
+          margin: 0;
+          font-family: sans-serif;
+          background-color: #000;
+          color: #fff;
+      }
+
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('/bugatti.avif') center / cover no-repeat fixed;
+          z-index: -1;
+          opacity: 0.3;
+          transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Título principal */
+      #page-title {
+          font-size: 900px;
+          margin: 0;
+          text-align: center;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 5;
+          color: white;
+          text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+          line-height: 1;
+          transition: font-size 0.3s ease, opacity 0.5s ease;
+      }
+
+      /* Navbar */
+      nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          z-index: 10;
+          background-color: #000c;
+          padding: 1rem;
+      }
+
+      /* Estilos para el contenido principal */
+      main {
+          margin-top: 950px;
+          padding: 2rem 2rem;
+          font-size: 1.2rem;
+          color: #fff;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
+          transition: opacity 1s ease-in-out;
+      }
+
+      /* Párrafos */
+      p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+      }
+
+      /* Estilos para el párrafo final */
+      .final-paragraph {
+          margin-top: 45vh;
+          font-size: 1.1rem;
+      }
+
+      /* Efecto de desvanecimiento para la página */
+      .fade-in {
+          animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Animación de desvanecimiento */
+      @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+      }
+    </style>
+
+    <main role="main" class="fade-in">
+          <h1 id="page-title">Bugatti</h1>
+
+          <p>
+          Bugatti es una marca de automóviles de lujo francesa, conocida por su enfoque en la ingeniería de alto rendimiento y el diseño exclusivo. Fundada en 1909 por Ettore Bugatti, la marca ha sido sinónimo de innovación y excelencia en la industria automotriz.
+          </p>
+
+          <p class="final-paragraph">
+          Bugatti ha producido modelos icónicos como el Veyron y el Chiron, que han establecido récords de velocidad y han redefinido lo que es posible en un automóvil de producción. Con una combinación de tecnología avanzada, diseño artístico y atención al detalle, Bugatti continúa siendo un símbolo de lujo y rendimiento en el mundo automotriz.
+          </p>
+    </main>
+
+    <script>
+        if (typeof window !== "undefined") {
+            const maxSize = 900;
+            const minSize = 100;
+            const maxScroll = 600;
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const newSize = Math.max(minSize, maxSize - (scrollY / maxScroll) * (maxSize - minSize));
+                const title = document.getElementById('page-title');
+                if (title) {
+                title.style.fontSize = `${newSize}px`;
+                }
+            });
+        }
+    </script>
+</Layout>

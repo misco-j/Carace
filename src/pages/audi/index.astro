@@ -1,0 +1,132 @@
+---
+import Navbar from "../../components/navbar.astro";
+import Layout from "../../layouts/Layout.astro";
+
+
+---
+
+
+<Layout title="Carace | Audi">
+    <Navbar></Navbar>
+
+    <!-- Estilos para la página de Audi -->
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/audi.jpeg') center / cover no-repeat fixed;
+            z-index: -1;
+            opacity: 0.6;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #page-title {
+            font-size: 0px; /* Empieza invisible */
+            margin: 0;
+            text-align: center;
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: inherit;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+            line-height: 1;
+            transition: font-size 0.3s ease, opacity 0.5s ease;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            background-color: #000c;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            margin-top: 800px;
+            padding: 3rem 2rem;
+            font-size: 1.2rem;
+            color: inherits;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .final-paragraph {
+            margin-top: 45vh;
+            font-size: 1.1rem;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+    <main role="main" class="fade-in">
+            <h1 id="page-title">Audi</h1>
+
+            <p>
+                Audi, una marca que ha dejado una huella indeleble en la industria automotriz, es sinónimo de innovación y diseño. Desde su fundación en 1909, ha sido pionera en tecnología de tracción integral y sistemas de infoentretenimiento avanzados.
+            </p>
+
+            <p class="final-paragraph">
+                Audi no solo se destaca por su rendimiento, sino también por su compromiso con la sostenibilidad y la electrificación. Con modelos como el Audi e-tron, la marca está liderando el camino hacia un futuro más verde en la movilidad.
+            </p>
+    </main>
+
+    <script>
+        if (typeof window !== "undefined") {
+            const minSize = 0;      // empieza en 0px
+            const maxSize = 100;     // crece hasta 70px
+            const maxScroll = 300;  // scroll máximo para alcanzar el tamaño completo
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const newSize = Math.min(maxSize, (scrollY / maxScroll) * maxSize);
+                const title = document.getElementById('page-title');
+                if (title) {
+                title.style.fontSize = `${newSize}px`;
+                }
+            });
+        }
+    </script>
+    
+
+</Layout>

@@ -1,11 +1,67 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Navbar from '../components/navbar.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Carace" backgroundImage="/carace.webp">
+	<Navbar></Navbar>
+
+
+	<!-- audi q8 e-tron -->
+
+
+	<!-- Index Style-->
+	<style>
+
+		body::before{
+			background: url('/carace.webp') center / cover fixed;
+		}
+		
+		.container {
+			max-width: 80%;
+			margin: 0 auto;
+			margin-top: 25px;
+			padding: 40px 20px;
+			text-align: center;
+			background: #fff1;
+			border-radius: 16px;
+			box-shadow: 0 8px 32px #000b;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+			box-sizing: border-box;
+		}
+
+		.container:hover {
+			background: transparent;
+			backdrop-filter: blur(0)
+		}
+
+		.title{
+			font-size: 64px;
+			font-weight: 700;
+			text-shadow: 2px 2px 8px #000e;
+			margin-bottom: 20px;
+			transition: color 0.3s ease;
+			color: inherit;
+			font-family: inherit;
+		}
+
+		.introduction{
+			font-size: 28px;
+			color: inherit;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 10px 0;
+			text-shadow: 1px 1px 6px #000c;
+			font-family: inherit;
+		}
+	</style>
+
+	<main role="main">
+		<div class="container">
+			<h1 class="title">CaRace</h1>
+			<p class="introduction">estas en el mejor sitio para comparar coches de lujos</p>
+		</div>
+	</main>
 </Layout>

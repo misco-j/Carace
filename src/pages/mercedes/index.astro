@@ -1,0 +1,127 @@
+---
+import Navbar from "../../components/navbar.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Carace | Mercedes">
+    <Navbar />
+
+    <style>
+      /* Estilos globales para el fondo */
+      body {
+          margin: 0;
+          font-family: sans-serif;
+          background-color: #000;
+          color: #fff;
+      }
+
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('/mercedes.avif') center / cover no-repeat fixed;
+          z-index: -1;
+          opacity: 0.3;
+          transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Título principal */
+      #page-title {
+          font-size: 900px;
+          margin: 0;
+          text-align: center;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 5;
+          color: white;
+          text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+          line-height: 1;
+          transition: font-size 0.3s ease, opacity 0.5s ease;
+      }
+
+      /* Navbar */
+      nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          z-index: 10;
+          background-color: #000c;
+          padding: 1rem;
+      }
+
+      /* Estilos para el contenido principal */
+      main {
+          margin-top: 950px;
+          padding: 2rem 2rem;
+          font-size: 1.2rem;
+          color: #fff;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
+          transition: opacity 1s ease-in-out;
+      }
+
+      /* Párrafos */
+      p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+      }
+
+      /* Estilos para el párrafo final */
+      .final-paragraph {
+          margin-top: 45vh;
+          font-size: 1.1rem;
+      }
+
+      /* Efecto de desvanecimiento para la página */
+      .fade-in {
+          animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Animación de desvanecimiento */
+      @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+      }
+    </style>
+
+    <main role="main" class="fade-in">
+          <h1 id="page-title">Mercedes</h1>
+
+          <p>
+          Mercedes-Benz es uno de los fabricantes de automóviles más reconocidos y prestigiosos del mundo. Fundada en 1926, la marca ha sido sinónimo de lujo, calidad y tecnología avanzada. Mercedes-Benz es conocida por su amplia gama de vehículos, que incluyen sedanes, SUV, deportivos y vehículos comerciales. Ha sido pionera en numerosas innovaciones automotrices, como la introducción de sistemas de seguridad avanzados y tecnologías de propulsión eléctrica. Además, es famosa por su compromiso con la sostenibilidad y la movilidad eléctrica, con una creciente línea de vehículos eléctricos e híbridos. Mercedes-Benz mantiene su reputación como líder en el sector automotriz, ofreciendo vehículos que combinan rendimiento, confort y tecnología de vanguardia.
+          </p>
+
+          <p class="final-paragraph">
+          Mercedes-Benz sigue siendo una referencia en la industria automotriz, fusionando lujo, innovación y un firme compromiso con la sostenibilidad y la tecnología.
+          </p>
+    </main>
+
+    <script>
+        if (typeof window !== "undefined") {
+            const maxSize = 900;
+            const minSize = 100;
+            const maxScroll = 600;
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const newSize = Math.max(minSize, maxSize - (scrollY / maxScroll) * (maxSize - minSize));
+                const title = document.getElementById('page-title');
+                if (title) {
+                title.style.fontSize = `${newSize}px`;
+                }
+            });
+        }
+    </script>
+</Layout>
